@@ -26,24 +26,43 @@ $mon: Montserrat, sans-serif // muller Font Family
 
 // FONTS LOAD SECTION
 
-@mixin font($fname, $fstyle, $fweight, $furl)
-	@font-face
-		font-family: $fname
-		font-style: $fstyle
-		font-weight: $fweight
-		font-display: swap
-		src: local($fname), url($furl) format('woff2')
+// @mixin font($fname, $fstyle, $fweight, $furl)
+// 	@font-face
+// 		font-family: $fname
+// 		font-style: $fstyle
+// 		font-weight: $fweight
+// 		font-display: swap
+// 		src: local($fname), url($furl) format('woff2')
+    
 
 
-@include font('FiraSans', normal, 800, '../fonts/FiraSans-ExtraBold.woff')
-@include font('FiraSans', normal, 900, '../fonts/FiraSans-Black.woff')
-@include font('FiraSans', normal, 400, '../fonts/FiraSans.woff')
-@include font('Muller', normal, 400, '../fonts/MullerRegular.woff')
-@include font('Muller', normal, 300, '../fonts/MullerLight.woff')
-@include font('Muller', normal, 500, '../fonts/MullerMedium.woff')
-@include font('Muller', normal, 900, '../fonts/MullerBlack.woff')
-@include font('Montserrat', normal, 800, '../fonts/Montserrat-ExtraBold.woff')
 
+// @include font('FiraSans', normal, 800, '../fonts/FiraSans-ExtraBold.woff')
+// @include font('FiraSans', normal, 900, '../fonts/FiraSans-Black.woff')
+// @include font('FiraSans', normal, 400, '../fonts/FiraSans.woff')
+// @include font('Muller', normal, 400, '../fonts/MullerRegular.woff')
+// @include font('Muller', normal, 300, '../fonts/MullerLight.woff')
+// @include font('Muller', normal, 500, '../fonts/MullerMedium.woff')
+// @include font('Muller', normal, 900, '../fonts/MullerBlack.woff')
+// @include font('Montserrat', normal, 800, '../fonts/Montserrat-ExtraBold.woff')
+
+@mixin font-face($font-family, $file-path, $weight: normal, $style: normal) 
+		@font-face 
+			font-family: $font-family
+			font-weight: $weight
+			font-style: $style
+			src: url('#{$file-path}.eot')
+			src: url('#{$file-path}.eot?#iefix') format('embedded-opentype'), url('#{$file-path}.woff') format('woff'), url('#{$file-path}.ttf') format('truetype')
+
+
+@include font-face('FiraSans', '../fonts/FiraSans-ExtraBold/FiraSans-ExtraBold', 800, normal)
+@include font-face('FiraSans', '../fonts/FiraSans-Black/FiraSans-Black', 900, normal)
+@include font-face('FiraSans', '../fonts/FiraSans/FiraSans', 400, normal)
+@include font-face('Muller', '../fonts/MullerLight/MullerLight', 300, normal)
+@include font-face('Muller', '../fonts/MullerRegular/MullerRegular', 400, normal)
+@include font-face('Muller', '../fonts/MullerMedium/MullerMedium', 500, normal)
+@include font-face('Muller', '../fonts/MullerBlack/MullerBlack', 800, normal)
+@include font-face('Montserrat', '../fonts/Montserrat-ExtraBold/Montserrat-ExtraBold', 800, normal)
 
 
 // GENERAL DOCUMENT STYLES
