@@ -1,0 +1,87 @@
+// IMPORT SECTION
+
+@import 'node_modules/bootstrap/scss/bootstrap-reboot.scss' // Bootstrap Reboot collection
+// @import 'node_modules/bootstrap/scss/mixins/_breakpoints.scss' // Bootstrap Breakpoints mixin
+// @import 'node_modules/bootstrap/scss/bootstrap-grid.scss' // Optional Bootstrap Grid
+// @import 'node_modules/bootstrap/scss/utilities/_sizing.scss' // Optional Bootstrap Utilites
+
+
+// USER VARIABLES SECTION
+
+$accent: #ff213b // Accent Color
+$fontsize: 16px // Body Font Size
+$textcolor: #000 // Text Color
+$lightcolor: #4b4b4b // light Color
+$blue: #172c42 // blue Color
+$system: -apple-system, BlinkMacSystemFont, Arial, sans-serif // System Font Family
+$muller: Muller, sans-serif // muller Font Family
+$fira: FiraSans, sans-serif // muller Font Family
+$mon: Montserrat, sans-serif // muller Font Family
+
+// Bootstrap compatible gutter variable => $gutter
+
+// $grid-gutter-width: 20px
+// $gutter: $grid-gutter-width
+
+
+// FONTS LOAD SECTION
+
+@mixin font($fname, $fstyle, $fweight, $furl)
+	@font-face
+		font-family: $fname
+		font-style: $fstyle
+		font-weight: $fweight
+		font-display: swap
+		src: local($fname), url($furl) format('woff2')
+
+
+@include font('FiraSans', normal, 800, '../fonts/FiraSans-ExtraBold.woff')
+@include font('FiraSans', normal, 900, '../fonts/FiraSans-Black.woff')
+@include font('FiraSans', normal, 400, '../fonts/FiraSans.woff')
+@include font('Muller', normal, 400, '../fonts/MullerRegular.woff')
+@include font('Muller', normal, 300, '../fonts/MullerLight.woff')
+@include font('Muller', normal, 500, '../fonts/MullerMedium.woff')
+@include font('Muller', normal, 900, '../fonts/MullerBlack.woff')
+@include font('Montserrat', normal, 800, '../fonts/Montserrat-ExtraBold.woff')
+
+
+
+// GENERAL DOCUMENT STYLES
+
+::placeholder
+	color: #666
+
+::selection
+	background-color: $accent
+	color: #fff
+
+input, textarea
+	outline: none
+	&:focus:required:invalid
+		border-color: red
+	&:required:valid
+		border-color: green
+
+body
+	font-family: $muller
+	font-weight: 300
+	font-size: $fontsize
+	min-width: 320px
+	position: relative
+	line-height: 1.5
+	overflow-x: hidden
+	color: $textcolor
+
+.container
+	max-width: 1396px
+	width: 97%
+	margin: 0 auto
+
+ul 
+	list-style-type: none
+	margin: 0
+	padding: 0
+
+a 
+	&:hover
+		text-decoration: none
